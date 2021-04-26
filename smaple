@@ -1,0 +1,43 @@
+import java.util.Scanner;
+class emp{  
+String name, age, sal,a,s; 
+void read(){
+       Scanner sc=new Scanner(System.in);
+       System.out.println("enter your name :");
+       name=sc.next();
+       System.out.println("enter your age :");
+       age=sc.next();
+       System.out.println("enter your salary :");
+       sal=sc.next();
+   }
+void display() 
+{   System.out.println("\nemployee details"); 
+System.out.println("name = "+this.name); 
+System.out.println("age = "+this.age); 
+System.out.println("sal = "+this.sal);  
+  } 
+
+void change()
+
+{   Scanner sc=new Scanner(System.in);
+System.out.println("\n enter changed information : "); 
+System.out.println("enter changed age : ");
+a=sc.next();
+System.out.println("enter changed salary :"); 
+ s=sc.next();
+  
+  } 
+    
+void dis() 
+{   System.out.println("\nchanged information : "); 
+System.out.println("name = "+this.name); 
+System.out.println("age = "+this.a); 
+System.out.println("sal = "+this.s); 
+} 
+}
+class Main {  public static void main(String[] args) {  
+  emp e1=new emp();
+  e1.read();
+  e1.display();
+  e1.change(); 
+  e1.dis();}}
