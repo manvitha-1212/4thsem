@@ -1,0 +1,48 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include<conio.h>
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+#include <iostream>
+ #include<math.h>
+float ar;
+void area (int a )
+{ ar=3.14*a*a;
+   
+}
+int area (int b, int h )
+{ar=.5*b*h;
+   
+}
+float area (float c,float d )
+{ ar=c*d;
+    
+}
+int main()
+{ float f ;
+int k,l;
+float m,n;
+cout<<"enter radius of circle : "<<endl;
+cin>>f;
+area(f);
+cout<<"area of circle "<<ar<<endl;
+cout<<"enter base and height  : "<<endl;
+cin>>k>>l;
+area(k,l);
+cout<<"area of traingle :  "<<ar<<endl;
+cout<<"enter sides of rectangle : "<<endl;
+cin>>m>>n;
+area(m,n);
+cout<<"area of rectangle "<<ar<<endl;
+   
+
+    return 0;
+}
