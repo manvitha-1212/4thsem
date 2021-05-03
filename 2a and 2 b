@@ -1,0 +1,168 @@
+package lab2;
+
+
+
+import java.util.Scanner; 
+
+class staff {  String name, phone;  int  sid, sal; 
+Scanner scan = new Scanner(System.in); 
+
+ 
+ void read()
+ {   System.out.println("staff id:");  
+ sid = scan.nextInt();   
+ System.out.println("name:");  
+ name = scan.next();  
+ System.out.println("phone:"); 
+ phone = scan.next();   
+ System.out.println("salary:");  
+ sal = scan.nextInt();   
+ scan.nextLine();  
+ } 
+ 
+ void display() 
+ {   System.out.println("staff id:" + sid); 
+ System.out.println("name:" + name);  
+ System.out.println("phone:" + phone);  
+ System.out.println("salary:" + sal);  } } 
+ 
+class teaching extends staff { 
+	String domain;  int publication; 
+ 
+ void read() {  
+	 super.read();   
+ System.out.print("enter domain :");   
+ domain = scan.nextLine();  
+ System.out.print("enter number of publications:");  
+ publication = scan.nextInt();  } 
+ 
+ void display() { 
+	 super.display();   
+ System.out.println("domain :" + domain);  
+ System.out.println("number of publications :" + publication);  } } 
+ 
+class technical extends staff {  
+	String[] skills; 
+ 
+ void read() {   super.read();  
+ System.out.print("skills (give with separated by commas):");  
+ skills = scan.nextLine().split(",");  } 
+ 
+ void display() {  
+	 super.display();  
+ System.out.print("skills:");  
+ for (int i = 0; i < skills.length; i++) {  
+	 System.out.print(skills[i] + " ");   }  
+ System.out.println();  } } 
+ 
+class contract extends staff {
+	int period; 
+ 
+ void read() {   super.read();
+ System.out.print("enter the contract period: ");   
+ period = scan.nextInt();  } 
+ 
+ void display() {  
+	 super.display();  
+	 System.out.print("contract Period: " + period);  } } 
+ 
+class prgm2a {  public static void main(String[] args)
+
+{  int i ;
+teaching teach[] = new teaching[3];  
+
+technical tech[] = new technical[3];  
+contract cont[] = new contract[3];  
+  
+System.out.println("enterstaff details");  
+for (i = 0; i < 3; i++) {  
+	System.out.println("\n enter details of teaching staff # " + (i + 1));    
+	teach[i] = new teaching();  
+	teach[i].read();   }  
+for (i = 0; i < 3; i++) {   
+	System.out.println("\n enter details of technical staff # " + (i + 1)); 
+
+
+   tech[i] = new technical(); 
+   tech[i].read();   }  
+for (i = 0; i < 3; i++) { 
+	System.out.println("\n enter details of contract staff # " + (i + 1));  
+	cont[i] = new contract();   
+	cont[i].read();   } 
+ 
+  
+System.out.println("\ndetails of 3 categories of staffs are\n");  
+for ( i = 0; i < 3; i++) {  
+	System.out.println("\n details of teaching staff # " + (i + 1));  
+	teach[i].display();   }  
+for (i = 0; i < 3; i++) { 
+	System.out.println("\n details of teaching staff # " + (i + 1));   
+	tech[i].display();   }  
+for (i = 0; i < 3; i++) {  
+		System.out.println("\n details of teaching staff # " + (i + 1));  
+		cont[i].display();   }  } } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package lab2;
+
+import java.util.Scanner; import java.util.StringTokenizer; 
+
+class Prgm2b { 
+	private String name, date_of_birth;  public void input() { 
+		Scanner s = new Scanner(System.in);   System.out.println("enter the name"); 
+		name = s.nextLine();   System.out.println("enter the date of birth in format dd/mm/yyyy");  
+		date_of_birth = s.nextLine();   s.close();  }  public void display() 
+		{   System.out.print("Name and ");  
+		StringTokenizer st = new StringTokenizer(date_of_birth, "/"); 
+		System.out.print("Date of birth is:"+ " < " + name + ", ");   
+		int n = st.countTokens();   while (st.hasMoreTokens())  
+		{  
+			if(n>1)    
+			System.out.print(st.nextToken("/") + ", ");    
+		else   
+			System.out.println(st.nextToken("/") + " >");  
+			n--;   }  }  public static void main(String[] args) {  
+				Prgm2b st = new Prgm2b();  
+				st.input();  
+				st.display();  } } 
+		
+ 
