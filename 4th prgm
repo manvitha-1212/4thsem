@@ -1,0 +1,91 @@
+import java.util.*;
+import java.io.*;
+class QSort { 
+	int array[]; 
+	int length; 
+	int cnt; 
+	int size; 
+	String flag; 
+	void process() 
+			throws IOException 
+	{   Scanner scanner = new Scanner(System.in);
+	size = scanner.nextInt(); 
+	flag = "best";  
+	cnt = 0; 
+	int[] inputArr = new int[size]; 
+getRandomNumbers(inputArr);  
+  scanner.close();   
+  int tempArr[] = new int[size];   
+  for (int i =0; i<inputArr.length ;i++)  
+	  tempArr[i] = inputArr[i];  
+  sort(inputArr); 
+  System.out.println(); 
+  System.out.println("time complexity for best case = " + cnt); 
+  PrintWriter outA = new PrintWriter(new File("best_sort.txt"));  
+  for (int i :inputArr)  outA.print(i + " "); 
+  outA.close();   cnt = 0;   flag = "worst"; 
+  sort(inputArr);   System.out.println();  
+  System.out.println("time complexity for worst case =  " + cnt); 
+  cnt = 0;   flag = "average"; 
+  sort(tempArr); 
+  System.out.println();  
+  PrintWriter outb = new PrintWriter(new File("worst_sort.txt")); 
+  for (int i : inputArr) {  
+	  outb.print(i);  
+  outb.print(" ");   }  
+  outb.close();   System.out.println(" time complexity for average case =  " + cnt);  }  
+	void getRandomNumbers(int[] inputArr) throws IOException  {  
+		Random rand = new Random(); 
+	int number,count = 0;  
+	PrintWriter out = new PrintWriter(new File("randomnNumbers.txt"));  
+	while (count<size)   
+	{    number = rand.nextInt(size) + 1;  
+	out.print(number + " ");   
+	inputArr[count] = number;  
+	count++;   }  
+	out.close(); 
+	System.out.println("total numbers = " + count); 
+	}  void sort(int[] inputArr)  {   int pivot = 0;  
+	if (inputArr == null || inputArr.length == 0) {  
+		return; 
+  }   this.array = inputArr; 
+  length = inputArr.length; 
+  if (flag == "best" || flag == "average")  
+  {   pivot = array[(length) / 2]; 
+  quickSort(0, length - 1, pivot);   }  
+  else if (flag == "worst")   {  
+	  pivot = array[0];   
+	  quickSort(0, length - 1, pivot); 
+	  }  }  void quickSort(int l, int h, int pivot)  { 
+		  int left = l;  
+		  int right = h; 
+		  
+		  switch (flag) {    case "best":  
+			  case "average":   
+				  pivot = array[l + (h - l) / 2];  
+				  break;   
+				  case "worst":   
+					  pivot = array[l];  
+				  break;   } 
+		  while (left<= right) {    
+			  while (array[left] <pivot) {    
+				  left++;  
+			  cnt++;    }    while (array[right] >pivot) {     right--;   
+			  cnt++;    }  
+			  if (left<= right) {     exchangeNumbers(left, right);   
+			     
+			  left++;  
+			  right--;    }   }   
+		  if (l<right) {    quickSort(l, right, pivot);   } 
+		  if (left<h) {    quickSort(left, h, pivot);   } 
+			  } 
+		  
+   void exchangeNumbers(int l, int r) {  
+	 int temp = array[l];   
+	 array[l] = array[r]; 
+	 array[r] = temp;  } } 
+	 class Prgm5b { 
+		 public static void main(String args[]) throws IOException {  
+			 System.out.print(" number of elements to sorted = ");
+			 QSort qs = new QSort();   qs.process();  } } 
+ 
